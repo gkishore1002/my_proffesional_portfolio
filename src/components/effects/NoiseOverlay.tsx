@@ -1,0 +1,5 @@
+const NoiseOverlay = () => (
+  <div className="noise-overlay pointer-events-none fixed inset-0 z-[2]" aria-hidden="true" />
+);
+
+export default NoiseOverlay;

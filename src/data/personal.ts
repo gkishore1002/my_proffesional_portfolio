@@ -1,10 +1,14 @@
 export const PERSONAL = {
-  name: "Northstar Studio",
-  title: "Premium product design & engineering",
+  name: "Datasphere",
+  brandName: "Datasphere",
+  tagline: "Premium Software Studio",
+  title: "Design & Engineering for Ambitious Products",
   location: "Remote • Worldwide",
   phone: "+1-800-555-0199",
-  email: "hello@northstarstudio.co",
+  email: "hello@datasphere.co",
   githubUrl: "https://github.com",
   linkedinUrl: "https://linkedin.com",
+  whatsappUrl: "https://wa.me/18005550199",
+  calendlyUrl: "https://calendly.com",
+  responseTime: "Response within 24 hours",
 } as const;
-

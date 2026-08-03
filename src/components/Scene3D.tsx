@@ -8,7 +8,7 @@ function AnimatedSphere() {
       <mesh scale={1.8}>
         <icosahedronGeometry args={[1, 4]} />
         <MeshDistortMaterial
-          color="#f97316"
+          color="#8B0000"
           roughness={0.2}
           metalness={0.8}
           distort={0.4}
@@ -25,7 +25,7 @@ function AnimatedTorus() {
       <mesh scale={1.2} position={[2.5, -1, -1]}>
         <torusGeometry args={[1, 0.3, 16, 32]} />
         <MeshDistortMaterial
-          color="#fb923c"
+          color="#B22222"
           roughness={0.3}
           metalness={0.7}
           distort={0.2}
@@ -41,8 +41,8 @@ const Scene3D = ({ className = "" }: { className?: string }) => (
     <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
       <Suspense fallback={null}>
         <ambientLight intensity={0.3} />
-        <directionalLight position={[5, 5, 5]} intensity={1} color="#f97316" />
-        <pointLight position={[-5, -5, 5]} intensity={0.5} color="#fb923c" />
+        <directionalLight position={[5, 5, 5]} intensity={1} color="#8B0000" />
+        <pointLight position={[-5, -5, 5]} intensity={0.5} color="#B22222" />
         <AnimatedSphere />
         <AnimatedTorus />
       </Suspense>
