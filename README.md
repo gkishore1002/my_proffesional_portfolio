@@ -22,33 +22,40 @@ Production output is written to `dist/`.
 
 ## Deploy to Cloudflare Pages
 
-### Option 1: Cloudflare Dashboard (recommended)
+### Cloudflare Dashboard settings
 
-1. Push this repository to GitHub or GitLab.
-2. Open [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-3. Select this repository.
-4. Use these build settings:
+Use **Cloudflare Pages** (not Workers deploy). In your project **Settings → Build**:
 
 | Setting | Value |
 |---|---|
 | Framework preset | None |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Node.js version | `20` (set in Environment variables → `NODE_VERSION`) |
+| **Build command** | `npm run build` |
+| **Build output directory** | `dist` |
+| **Deploy command** | *(leave empty)* |
+| **Root directory** | `/` |
+| Node.js version | `20` (Environment variable: `NODE_VERSION=20`) |
 
-5. Deploy. Cloudflare will rebuild on every push to your production branch.
+> **Important:** Do **not** use `bun run build` or `npx wrangler deploy` for this static Vite site.  
+> Cloudflare was failing because `bun.lock` was out of sync with `package.json`. This project uses **npm** (`package-lock.json`).
 
-SPA routing is handled by `public/_redirects`, which rewrites all routes to `index.html`.
+SPA routing is handled by `public/_redirects`.
+
+### Option 1: Connect Git (recommended)
+
+1. Push this repository to GitHub or GitLab.
+2. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+3. Apply the build settings in the table above.
+4. Deploy — Cloudflare rebuilds on every push.
 
 ### Option 2: Wrangler CLI
 
 ```sh
-npm install -g wrangler
+npm install
 npm run build
 npx wrangler pages deploy dist --project-name=datasphere
 ```
 
-`wrangler.toml` is included for Pages project configuration.
+Use `wrangler pages deploy`, not `wrangler deploy`.
 
 ### Custom domain
 
